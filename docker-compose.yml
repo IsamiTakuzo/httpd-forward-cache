@@ -1,0 +1,13 @@
+version: '3.1'
+services:
+
+  cache:
+    image: httpd-cache:latest
+    build:
+      context: proxy/
+    restart: always
+    volumes:
+      - ./httpd.conf:/usr/local/apache2/conf/httpd.conf
+#      - ./cache:/var/cache/apache2/mod_cache_disk
+    ports:
+      - 3128:80
